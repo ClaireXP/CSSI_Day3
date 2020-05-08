@@ -13,9 +13,12 @@
  *    mouseX,
  *    mouseY,
  *    noStroke,
+ *    resizeCanvas,
  *    stroke,
  *    text,
  *    width,
+ *    windowHeight,
+ *    windowWidth,
  */
 
 function setup() {
@@ -23,7 +26,7 @@ function setup() {
 }
 
 function windowResized() {
-  createCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 let isDarkTheme = false;
