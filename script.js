@@ -115,7 +115,7 @@ function trackMouse(){
   if(mouseX<xCan/2){
     backgroundColor = color(95);
   }else{
-    backgroundColor = color(0,0,0);
+    backgroundColor = color(0);
   }
   
   if(mouseY<yCan/2){
@@ -127,10 +127,10 @@ function trackMouse(){
 
 function flip(){
   if(mouseX<xCan/2){
-    fill(0,0,0);
+    fill(0);
     textColor = 0;
   }else{
-    fill(0,0,255);
+    fill(255);
     textColor = 255;
   }
 }
