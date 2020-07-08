@@ -54,10 +54,8 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-let isDarkTheme = false;
-
 function draw() {
-  isDarkTheme = mouseX > width / 2;
+  let isDarkTheme = mouseX > width / 2;
 
   background(isDarkTheme ? 50 : 205);
   
