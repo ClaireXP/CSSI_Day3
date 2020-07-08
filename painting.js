@@ -65,7 +65,8 @@ if(xCan<yCan){
   scale = xCan/50;
 }else{
   scale = yCan/50;
-}let w = scale*5
+}let h = (window.innerHeight-20)/20
+let w = (window.innerWidth-15)/10;
 
 function setup() {  
   // Canvas & color settings
@@ -87,7 +88,7 @@ function mouseDragged(){
 }
 
 function colorChange(){
-  if(mouseY>yCan-w){
+  if(mouseY>yCan-h){
     if(mouseX>0 && mouseX<w){
       col(r);
     }if(mouseX>w && mouseX<w*2){
@@ -116,38 +117,38 @@ function refresh(){
   background(175,0,95);
   
   col(r);
-  rect(0,yCan-w,w);
+  rect(0,yCan-h,w,h);
   
   col(o);
-  rect(w,yCan-w,w);
+  rect(w,yCan-h,w,h);
   
   col(y);
-  rect(w*2,yCan-w,w);
+  rect(w*2,yCan-h,w,h);
   
   col(g);
-  rect(w*3,yCan-w,w);
+  rect(w*3,yCan-h,w,h);
   
   col(b);
-  rect(w*4,yCan-w,w);
+  rect(w*4,yCan-h,w,h);
   
   col(v);
-  rect(w*5,yCan-w,w);
+  rect(w*5,yCan-h,w,h);
   
   col(p);
-  rect(w*6,yCan-w,w);
+  rect(w*6,yCan-h,w,h);
   
   fill(black);
-  rect(w*7,yCan-w,w);
+  rect(w*7,yCan-h,w,h);
   
   fill(white);
-  rect(w*8,yCan-w,w);
+  rect(w*8,yCan-h,w,h);
   
   fill(grey, 0, 95);
-  rect(w*9,yCan-w,w);
+  rect(w*9,yCan-h,w,h);
   
   fill(black);
   textSize(15);
-  text("erase", xCan-w+w/7,yCan-w/2+w/9);
+  text("erase", xCan-w+w/3,yCan-h/2+h/9);
 }
 
 function col(color){
