@@ -48,6 +48,15 @@ let yCan = window.innerHeight-20;
 let backgroundColor, color1, color2, textColor;
 let globalSat, globalBri;
 
+let scale;
+if(xCan<yCan){
+  scale = xCan/12;
+}else{
+  scale = yCan/12;
+}
+
+let size = scale;
+
 function setup() {
   // Canvas & color settings
   createCanvas(xCan, yCan);
@@ -78,10 +87,12 @@ function draw() {
   drawCenterLine();
 
   // The red and blue circles:
+  // colorCheck();
+  
   fill(color1);
-  ellipse(xCan/4, yCan/2, 50);
+  ellipse(xCan/4, yCan/2, scale);
   fill(color2);
-  ellipse(3*xCan/4, yCan/2, 50);
+  ellipse(3*xCan/4, yCan/2, scale);
 
   // The grey circle and the text:
   fill(textColor);
@@ -89,7 +100,7 @@ function draw() {
   text("Flip the switch", 20, 20);
   
   flip();
-  ellipse(mouseX, mouseY, 50);
+  ellipse(mouseX, mouseY, size);
 }
 
 function drawCenterLine() {
@@ -105,6 +116,12 @@ function trackMouse(){
     backgroundColor = color(95);
   }else{
     backgroundColor = color(0,0,0);
+  }
+  
+  if(mouseY<yCan/2){
+    size = scale*2;
+  }else{
+    size = scale*.5;
   }
 }
 
