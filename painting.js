@@ -42,24 +42,49 @@
  *    mouseX,
  *    mouseY,
  *    textSize,
+ *    rect,
  */
 
 let xCan = window.innerWidth-15;
 let yCan = window.innerHeight-20;
+
+let color1, color2, color3, color4;
+
+let scale;
+if(xCan<yCan){
+  scale = xCan/50;
+}else{
+  scale = yCan/50;
+}
 
 function setup() {
   // Canvas & color settings
   createCanvas(xCan, yCan);
   colorMode(HSB, 360, 100, 100);
   noStroke();
-
-  // When used with only one argument, the color mode is greyscale.
-  // 0 is black and 100 is white.
+  
+  background(175,0,95);
 }
 
 function draw() {
   textSize(30);
-  text("Painting Fun!", 20, 20);
   
-  ellipse(mouseX, mouseY, size);
+  fill(275,40,80);
+  rect(0,0,scale*5);
+}
+
+function mouseDragged(){
+  ellipse(mouseX, mouseY, 5);
+  // prevent default
+  return false;
+}
+
+function colors(){
+  if(mouseX>0 && mouseX<scale*5){
+    if(mouseY>0 && mouseY<scale*5){
+      stroke(color1);
+    }if(mouseY>yCan-scale*5 && mouseY<yCan){
+      stroke(color1);
+    }
+  }
 }
