@@ -63,6 +63,7 @@ function setup() {
 }
 
 function draw() {
+  checkMouse;
   background(backgroundColor);
   // Call the drawCenterLine function here to run the three lines of code
   // contained in that function.
@@ -78,6 +79,7 @@ function draw() {
   fill(textColor);
   ellipse(50, 50, 50);
   text("Flip the switch", 20, 20);
+  drawCenterLine();
 }
 
 function drawCenterLine() {
@@ -87,4 +89,8 @@ function drawCenterLine() {
   stroke(textColor);
   line(200, 0, 200, 400);
   noStroke();
+}
+
+function checkMouse(){
+  if(mouseX>)
 }
