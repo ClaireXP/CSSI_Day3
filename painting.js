@@ -48,14 +48,17 @@
 let xCan = window.innerWidth-15;
 let yCan = window.innerHeight-20;
 
-let red = 0;
-let color2 = 20;
-let color3 = 50;
-let color4 = 100;
-let color5 = 175;
-let color6 = 275;
-let color7 = 350;
-let color8 = 
+let r = 0;
+let o = 20;
+let y = 50;
+let g = 100;
+let b = 175;
+let v = 275;
+let p = 320;
+let black = 255;
+let white = 0;
+let grey = 175;
+
 
 let scale;
 if(xCan<yCan){
@@ -75,7 +78,9 @@ function setup() {
 
 function draw() {
   colorChange();
-  textSize(30);
+  
+  textSize(10);
+  text("");
 }
 
 function mouseDragged(){
@@ -86,23 +91,64 @@ function mouseDragged(){
 
 function colorChange(){
   if(mouseY>yCan-w){
-    
+    if(mouseX>0 && mouseX<w){
+      col(r);
+    }if(mouseX>w && mouseX<w*2){
+      col(o);
+    }if(mouseX>w*2 && mouseX<w*3){
+      col(y);
+    }if(mouseX>w*3 && mouseX<w*4){
+      col(g);
+    }if(mouseX>w*4 && mouseX<w*5){
+      col(b);
+    }if(mouseX>w*5 && mouseX<w*6){
+      col(v);
+    }if(mouseX>w*6 && mouseX<w*7){
+      col(p);
+    }if(mouseX>w*7 && mouseX<w*8){
+      fill(black);
+    }if(mouseX>w*8 && mouseX<w*9){
+      fill(white);
+    }if(mouseX>w*9 && mouseX<w*10){
+      fill(grey, 0, 95);
+    }
   }
 }
 
 function refresh(){
   background(175,0,95);
-  fill(color1, 40, 80);
   
-  fill(color1, 40, 80);
+  col(r);
   rect(0,yCan-w,w);
   
-  fill(color2, 40, 80);
+  col(o);
   rect(w,yCan-w,w);
   
-  fill(color3, 40, 80);
+  col(y);
   rect(w*2,yCan-w,w);
   
-  fill(color4, 40, 80);
+  col(g);
   rect(w*3,yCan-w,w);
+  
+  col(b);
+  rect(w*4,yCan-w,w);
+  
+  col(v);
+  rect(w*5,yCan-w,w);
+  
+  col(p);
+  rect(w*6,yCan-w,w);
+  
+  fill(black);
+  rect(w*7,yCan-w,w);
+  
+  fill(white);
+  rect(w*8,yCan-w,w);
+  
+  fill(grey, 0, 95);
+  rect(w*9,yCan-w,w);
+}
+
+function col(color){
+  fill(color, 40, 80);
 }
