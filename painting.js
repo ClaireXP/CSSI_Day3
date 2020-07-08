@@ -43,6 +43,8 @@
  *    mouseY,
  *    textSize,
  *    rect,
+ *    slider
+ *    createSlider
  */
 
 let xCan = window.innerWidth-15;
@@ -59,13 +61,14 @@ let black = 0;
 let white = 255;
 let grey = 175;
 
+let slider;
 
 let scale;
 if(xCan<yCan){
   scale = xCan/50;
 }else{
   scale = yCan/50;
-}let h = (window.innerHeight-20)/20
+}let h = (window.innerHeight-20)/20;
 let w = (window.innerWidth-15)/10;
 
 function setup() {  
