@@ -70,33 +70,49 @@
  *    windowWidth,
  */
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-}
+let backgroundColor, color1, color2, textColor, globalS, globalB;
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB, 360, 100, 100);
+  noStroke();
+  // Set saturation and brightness globally so we can experiment with different
+  // color palettes as we go without having to change multiple things
+  globalS = 90;
+  globalB = 90;
+  // We'll keep background color in a variable so we can modify it in other
+  // functions.
+  backgroundColor = color(95);
+  // The variable color1 will be used for the ellipse on the left, and color2
+  // will be the ellipse on the right.
+  color1 = color(0, globalS, globalB);
+  color2 = color(200, globalS, globalB);
+  // We will use this textColor variable as a way to make sure the text is
+  // always visible against a changing background.
+  textColor = color(20);
 }
 
 function draw() {
-  let isDarkTheme = mouseX > width / 2;
-
-  background(isDarkTheme ? 50 : 205);
-  
-  stroke(isDarkTheme ? 205 : 50);
+  background(backgroundColor);
+  stroke(textColor);
   line(width / 2, 0, width / 2, height);
-  
-  fill(isDarkTheme ? 205 : 50);
-  text('Flip the switch', 10, 20);
-  
   noStroke();
-  
-  fill(isDarkTheme ? 'blue' : 'red');
-  circle(width / 4, height / 2, width / 10);
-  
-  fill(isDarkTheme ? 'red' : 'blue');
-  circle(3 * width / 4, height / 2, width / 10);
-  
-  fill(isDarkTheme ? 205 : 50);
-  circle(mouseX, mouseY, width / 10);
+  if (mouseX > width / 2) {
+    backgroundColor = color(20);
+    color1 = color(200, globalS, globalB);
+    color2 = color(0, globalS, globalB);
+    textColor = color(95);
+  } else {
+    backgroundColor = color(95);
+    color1 = color(0, globalS, globalB);
+    color2 = color(200, globalS, globalB);
+    textColor = color(20);
+  }
+  fill(color1);
+  ellipse(1 / 4 * width, height / 2, 50);
+  fill(color2);
+  ellipse(3 / 4 * width, height / 2, 50);
+  fill(textColor);
+  text("Flip the switch", 20, 20);
+  ellipse(mouseX, mouseY, 50);
 }

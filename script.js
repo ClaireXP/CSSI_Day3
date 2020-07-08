@@ -21,6 +21,8 @@
 7) Build a painting app with colored rectangles in the corners.
    Each time you move your mouse to a corner, have the background
    change to match that color.
+8) Make your logo(s) change color when the mouse goes over them
+   (or close to them, if that's easier).
 
 */
 
