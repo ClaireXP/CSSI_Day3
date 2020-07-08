@@ -86,9 +86,7 @@ function draw() {
   // contained in that function.
   drawCenterLine();
 
-  // The red and blue circles:
-  // colorCheck();
-  
+  // The red and blue circles:  
   fill(color1);
   ellipse(xCan/4, yCan/2, scale);
   fill(color2);
@@ -127,10 +125,22 @@ function trackMouse(){
 
 function flip(){
   if(mouseX<xCan/2){
+    if(mouseY>yCan/2-scale/2 && mouseY<yCan/2+scale/2){
+      if(mouseX>xCan/4-scale/2 && mouseX<xCan/4+scale/2){
+        
+      }
+    }
+      
     fill(0);
     textColor = 0;
+    
+    color1 = color(275, globalSat, globalBri);
+    color2 = color(175, globalSat, globalBri);
   }else{
     fill(255);
     textColor = 255;
+    
+    color2 = color(275, globalSat, globalBri);
+    color1 = color(175, globalSat, globalBri);
   }
 }
