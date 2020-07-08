@@ -48,7 +48,10 @@
 let xCan = window.innerWidth-15;
 let yCan = window.innerHeight-20;
 
-let color1, color2, color3, color4;
+let color1 = 275;
+let color2 = 175;
+let color3 = 0;
+let color4 = 100;
 
 let scale;
 if(xCan<yCan){
@@ -57,34 +60,48 @@ if(xCan<yCan){
   scale = yCan/50;
 }
 
-function setup() {
+function setup() {  
   // Canvas & color settings
   createCanvas(xCan, yCan);
   colorMode(HSB, 360, 100, 100);
   noStroke();
   
   background(175,0,95);
+  fill(color1, 40, 80);
+  
+  fill(color1, 40, 80);
+  rect(0,0,scale*5);
+  
+  fill(color2, 40, 80);
+  rect(xCan-scale*5,0,scale*5);
+  
+  fill(color3, 40, 80);
+  rect(xCan-scale*5,0,scale*5);
 }
 
 function draw() {
+  colorChange();
   textSize(30);
-  
-  fill(275,40,80);
-  rect(0,0,scale*5);
 }
 
 function mouseDragged(){
-  ellipse(mouseX, mouseY, 5);
+  ellipse(mouseX, mouseY, scale);
   // prevent default
   return false;
 }
 
-function colors(){
+function colorChange(){
   if(mouseX>0 && mouseX<scale*5){
     if(mouseY>0 && mouseY<scale*5){
-      stroke(color1);
+      fill(color1, 40, 80);
     }if(mouseY>yCan-scale*5 && mouseY<yCan){
-      stroke(color1);
+      fill(color3, 40, 80);
+    }
+  }if(mouseX>xCan-scale*5 && mouseX<xCan){
+    if(mouseY>0 && mouseY<scale*5){
+      fill(color2, 40, 80);
+    }if(mouseY>yCan-scale*5 && mouseY<yCan){
+      fill(color4, 40, 80);
     }
   }
 }
