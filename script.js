@@ -39,16 +39,24 @@
  *    noStroke,
  *    stroke,
  *    text,
+ *    mouseX,
+ *    mouseY,
  */
 
+let xCan = window.innerWidth-15;
+let yCan = window.innerHeight-20;
 let backgroundColor, color1, color2, textColor;
+let globalSat, globalBri;
 
 function setup() {
   // Canvas & color settings
-  createCanvas(400, 400);
+  createCanvas(xCan, yCan);
   colorMode(HSB, 360, 100, 100);
   noStroke();
 
+  globalSat = 40;
+  globalBri = 80;
+  
   // When used with only one argument, the color mode is greyscale.
   // 0 is black and 100 is white.
   backgroundColor = color(95);
@@ -58,39 +66,54 @@ function setup() {
   //       is blue.
   // SATURATION - 0 is no color (greyscale), and 100 is as bold as possible.
   // BRIGHTNESS - 0 is no light (black), and 100 is as bright as possible.
-  color1 = color(0, 80, 80);
-  color2 = color(200, 80, 80);
+  color1 = color(275, globalSat, globalBri);
+  color2 = color(175, globalSat, globalBri);
 }
 
 function draw() {
-  checkMouse;
+  trackMouse();
   background(backgroundColor);
   // Call the drawCenterLine function here to run the three lines of code
   // contained in that function.
-
+  drawCenterLine();
 
   // The red and blue circles:
   fill(color1);
-  ellipse(100, 200, 50);
+  ellipse(xCan/4, yCan/2, 50);
   fill(color2);
-  ellipse(300, 200, 50);
+  ellipse(3*xCan/4, yCan/2, 50);
 
   // The grey circle and the text:
   fill(textColor);
-  ellipse(50, 50, 50);
+  stroke(textColor);
   text("Flip the switch", 20, 20);
-  drawCenterLine();
+  
+  flip();
+  ellipse(mouseX, mouseY, 50);
 }
 
 function drawCenterLine() {
   // This function will turn stroke on, draw the line, and then turn stroke
   // back off.
   // Remember a line segment in p5.js has four arguments: x1, y1, x2, y2
-  stroke(textColor);
-  line(200, 0, 200, 400);
+  line(xCan/2, 0, xCan/2, yCan);
   noStroke();
 }
 
-function checkMouse(){
-  if(mouseX>)
+function trackMouse(){
+  if(mouseX<xCan/2){
+    backgroundColor = color(95);
+  }else{
+    backgroundColor = color(0,0,0);
+  }
+}
+
+function flip(){
+  if(mouseX<xCan/2){
+    fill(0,0,0);
+    textColor = 0;
+  }else{
+    fill(0,0,255);
+    textColor = 255;
+  }
 }
