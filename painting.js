@@ -48,17 +48,21 @@
 let xCan = window.innerWidth-15;
 let yCan = window.innerHeight-20;
 
-let color1 = 275;
-let color2 = 175;
-let color3 = 0;
+let red = 0;
+let color2 = 20;
+let color3 = 50;
 let color4 = 100;
+let color5 = 175;
+let color6 = 275;
+let color7 = 350;
+let color8 = 
 
 let scale;
 if(xCan<yCan){
   scale = xCan/50;
 }else{
   scale = yCan/50;
-}
+}let w = scale*5
 
 function setup() {  
   // Canvas & color settings
@@ -66,17 +70,7 @@ function setup() {
   colorMode(HSB, 360, 100, 100);
   noStroke();
   
-  background(175,0,95);
-  fill(color1, 40, 80);
-  
-  fill(color1, 40, 80);
-  rect(0,0,scale*5);
-  
-  fill(color2, 40, 80);
-  rect(xCan-scale*5,0,scale*5);
-  
-  fill(color3, 40, 80);
-  rect(xCan-scale*5,0,scale*5);
+  refresh();
 }
 
 function draw() {
@@ -91,17 +85,24 @@ function mouseDragged(){
 }
 
 function colorChange(){
-  if(mouseX>0 && mouseX<scale*5){
-    if(mouseY>0 && mouseY<scale*5){
-      fill(color1, 40, 80);
-    }if(mouseY>yCan-scale*5 && mouseY<yCan){
-      fill(color3, 40, 80);
-    }
-  }if(mouseX>xCan-scale*5 && mouseX<xCan){
-    if(mouseY>0 && mouseY<scale*5){
-      fill(color2, 40, 80);
-    }if(mouseY>yCan-scale*5 && mouseY<yCan){
-      fill(color4, 40, 80);
-    }
+  if(mouseY>yCan-w){
+    
   }
+}
+
+function refresh(){
+  background(175,0,95);
+  fill(color1, 40, 80);
+  
+  fill(color1, 40, 80);
+  rect(0,yCan-w,w);
+  
+  fill(color2, 40, 80);
+  rect(w,yCan-w,w);
+  
+  fill(color3, 40, 80);
+  rect(w*2,yCan-w,w);
+  
+  fill(color4, 40, 80);
+  rect(w*3,yCan-w,w);
 }
