@@ -1,3 +1,28 @@
+/* ____    ___       _      _       ____  
+  / ___|  / _ \     / \    | |     / ___| 
+ | |  _  | | | |   / _ \   | |     \___ \ 
+ | |_| | | |_| |  / ___ \  | |___   ___) |
+  \____|  \___/  /_/   \_\ |_____| |____/ 
+                                               
+1) Make the DVD logo move
+2) Bounce
+3) Move and bounce diagonally
+4) Respond to canvas size
+
+  ____    _____   ____    _____   _____    ____   _   _ 
+ / ___|  |_   _| |  _ \  | ____| |_   _|  / ___| | | | |
+ \___ \    | |   | |_) | |  _|     | |   | |     | |_| |
+  ___) |   | |   |  _ <  | |___    | |   | |___  |  _  |
+ |____/    |_|   |_| \_\ |_____|   |_|    \____| |_| |_|
+
+4) Build in another toggle that responds to vertical movement
+   across the center of the screen.
+5) Build a painting app with colored rectangles in the corners.
+   Each time you move your mouse to a corner, have the background
+   change to match that color.
+
+*/
+
 // Name any p5.js functions we use in the global so Glitch can recognize them.
 /* global
  *    HSB,
