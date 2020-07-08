@@ -55,8 +55,8 @@ let g = 100;
 let b = 175;
 let v = 275;
 let p = 320;
-let black = 255;
-let white = 0;
+let black = 0;
+let white = 255;
 let grey = 175;
 
 
@@ -78,9 +78,6 @@ function setup() {
 
 function draw() {
   colorChange();
-  
-  textSize(10);
-  text("");
 }
 
 function mouseDragged(){
@@ -147,6 +144,10 @@ function refresh(){
   
   fill(grey, 0, 95);
   rect(w*9,yCan-w,w);
+  
+  fill(black);
+  textSize(15);
+  text("erase", xCan-w+w/7,yCan-w/2+w/9);
 }
 
 function col(color){
